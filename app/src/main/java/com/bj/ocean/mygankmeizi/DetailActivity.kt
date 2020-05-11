@@ -20,6 +20,7 @@ import com.bj.ocean.mygankmeizi.util.InjectUtils
 import com.bj.ocean.mygankmeizi.viewmodel.GirlDetailViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_scrolling.*
+import kotlinx.android.synthetic.main.lay_content.*
 
 class DetailActivity : AppCompatActivity() {
 
@@ -80,7 +81,11 @@ class DetailActivity : AppCompatActivity() {
         } else {
             fab.visibility = View.VISIBLE
         }
-
+        tv_create_time.setText("创建时间："+it.createdAt)
+        tv_publish_time.setText("创建时间："+it.publishedAt)
+        tv_desc.setText(""+it.desc)
+        tv_scan.setText("浏览量："+it.views)
+        tv_title.setText(""+it.title)
 
     }
 
