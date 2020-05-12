@@ -19,7 +19,9 @@
                 android:theme="@style/AppTheme.AppBarOverlay">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
+                    app:title="魅子"
                     android:id="@+id/toolbar_layout"
+
                     android:fitsSystemWindows="true"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -41,6 +43,8 @@
                         android:layout_height="@dimen/app_bar_h"/>
 
                 <androidx.appcompat.widget.Toolbar
+
+                        app:titleTextColor="#030"
                         android:background="@android:color/transparent"
                         app:navigationIcon="@drawable/ic_detail_back"
                         android:id="@+id/toolbar"

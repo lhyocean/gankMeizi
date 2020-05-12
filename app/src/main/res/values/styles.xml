@@ -32,7 +32,7 @@
 
 
     <style name="TextAppearance.MeiZi.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
-        <item name="android:textColor">#333</item>
+        <item name="android:textColor">#030</item>
         <item name="android:textStyle">bold</item>
 
     </style>

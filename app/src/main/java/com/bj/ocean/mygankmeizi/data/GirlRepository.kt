@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
  * Created by ocean on 2020-04-30
  * @describe:
  */
-class GirlReposity private constructor(private val girlDao: GirlDao) {
+class GirlRepository private constructor(private val girlDao: GirlDao) {
 
     //
     fun getGirls(isFavor: Boolean): LiveData<List<Girl>> =
@@ -23,11 +23,11 @@ class GirlReposity private constructor(private val girlDao: GirlDao) {
 
     companion object {
         @Volatile
-        private var instance: GirlReposity? = null
+        private var instance: GirlRepository? = null
 
         fun getInstance(girlDao: GirlDao) =
             instance ?: synchronized(this) {
-                instance ?: GirlReposity(girlDao).also { instance = it }
+                instance ?: GirlRepository(girlDao).also { instance = it }
             }
 
     }

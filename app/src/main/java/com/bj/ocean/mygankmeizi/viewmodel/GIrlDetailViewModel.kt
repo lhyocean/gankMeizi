@@ -1,9 +1,8 @@
 package com.bj.ocean.mygankmeizi.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bj.ocean.mygankmeizi.data.GirlReposity
+import com.bj.ocean.mygankmeizi.data.GirlRepository
 import kotlinx.coroutines.launch
 
 /**
@@ -11,15 +10,15 @@ import kotlinx.coroutines.launch
  * @describe:
  */
 class GirlDetailViewModel(
-    private val girlReposity: GirlReposity,
+    private val girlRepository: GirlRepository,
     private val girl_id: String
 ) : ViewModel(){
-    val girl =girlReposity.getGirl(girl_id)
+    val girl =girlRepository.getGirl(girl_id)
     val isFavor:Boolean =1==girl.value?.isFavor
 
     fun addGirlToFavor(){
         viewModelScope.launch {
-            girlReposity.updateGirl(girl_id)
+            girlRepository.updateGirl(girl_id)
         }
     }
 

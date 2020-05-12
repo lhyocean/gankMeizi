@@ -8,51 +8,60 @@
         android:layout_height="match_parent">
 
     <TextView
+            android:textColor="#300"
             android:text="第二期"
             android:textSize="18sp"
             android:id="@+id/tv_title"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_height="wrap_content"/>
-
-
-    <TextView
-            android:textSize="18sp"
-            android:id="@+id/tv_scan"
-            android:layout_marginTop="10dp"
-            android:text="浏览量了"
-            android:layout_width="wrap_content"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_height="wrap_content"/>
 
 
+    <TextView
+            android:textColor="#333"
+            android:textSize="18sp"
+            android:id="@+id/tv_scan"
+            android:layout_marginTop="10dp"
+            android:text="浏览量了"
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            android:layout_height="wrap_content"/>
+
+
 
     <TextView
+            android:textColor="#003"
             android:textSize="15sp"
             android:text="创建时间"
             android:id="@+id/tv_create_time"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_scan"
             android:layout_height="wrap_content"/>
 
 
     <TextView
+            android:textColor="#303"
             android:textSize="15sp"
             android:id="@+id/tv_publish_time"
             android:layout_marginTop="10dp"
             android:text="发布时间"
             android:layout_width="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_create_time"
             android:layout_height="wrap_content"/>
 
 
     <TextView
+            android:textColor="#030"
             android:textSize="18sp"
             android:id="@+id/tv_desc"
             android:layout_marginTop="20dp"

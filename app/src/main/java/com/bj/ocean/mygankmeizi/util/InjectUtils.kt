@@ -2,7 +2,7 @@ package com.bj.ocean.mygankmeizi.util
 
 import android.content.Context
 import com.bj.ocean.mygankmeizi.data.AppDataBase
-import com.bj.ocean.mygankmeizi.data.GirlReposity
+import com.bj.ocean.mygankmeizi.data.GirlRepository
 import com.bj.ocean.mygankmeizi.viewmodel.GirlDetailViewModelFacytory
 import com.bj.ocean.mygankmeizi.viewmodel.GirlListViewModelFactory
 
@@ -13,9 +13,9 @@ import com.bj.ocean.mygankmeizi.viewmodel.GirlListViewModelFactory
 object InjectUtils {
 
 
-    private fun getGirlRepository(context: Context): GirlReposity {
+    private fun getGirlRepository(context: Context): GirlRepository {
 
-        return GirlReposity.getInstance(
+        return GirlRepository.getInstance(
             AppDataBase.getInstance(context).girlDao()
         )
     }
