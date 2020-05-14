@@ -19,6 +19,7 @@ import com.bj.ocean.mygankmeizi.data.GirlDao
 import com.bj.ocean.mygankmeizi.util.InjectUtils
 import com.bj.ocean.mygankmeizi.viewmodel.GirlDetailViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_scrolling.*
 import kotlinx.android.synthetic.main.lay_content.*
 
@@ -47,7 +48,6 @@ class DetailActivity : AppCompatActivity() {
             girlDetailViewModel?.girl?.observe(instance, Observer {
                 if (it != null)
                     upDataUi(it)
-
             })
 
         }
@@ -60,6 +60,7 @@ class DetailActivity : AppCompatActivity() {
             girl_id?.apply {
 
                 girlDetailViewModel?.addGirlToFavor()
+                Snackbar.make(it,"添加收藏成功",Snackbar.LENGTH_SHORT)
                 hideAppBarFab(fab)
             }
         }
