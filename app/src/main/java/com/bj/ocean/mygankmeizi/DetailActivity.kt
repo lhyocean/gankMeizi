@@ -60,7 +60,11 @@ class DetailActivity : AppCompatActivity() {
             girl_id?.apply {
 
                 girlDetailViewModel?.addGirlToFavor()
-                Snackbar.make(it,"添加收藏成功",Snackbar.LENGTH_SHORT)
+                Snackbar.make(it,"添加收藏成功",Snackbar.LENGTH_SHORT).
+                    setAction("完成", View.OnClickListener {
+                        finish()
+                    }).
+                    show()
                 hideAppBarFab(fab)
             }
         }
