@@ -26,7 +26,15 @@ interface GirlDao {
      *   更新方法，此处没有使用updata 注解
      */
     @Query("update girls set isFavor =1 where id = :girl_id")
-    suspend fun updataFavor(girl_id: String)
+    suspend fun updateFavor(girl_id: String)
+
+
+    /**
+     *   更新方法，此处没有使用updata 注解
+     */
+    @Query("update girls set isFavor =0 where id = :girl_id")
+    suspend fun cancelFavor(girl_id: String)
+
 
 
 

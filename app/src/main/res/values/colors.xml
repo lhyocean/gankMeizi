@@ -10,4 +10,5 @@
     <color name="sunflower_green_500">#49bb79</color>
     <color name="sunflower_green_700">#005d2b</color>
     <color name="sunflower_green_900">#1a231e</color>
+    <color name="gray">#ccc</color>
 </resources>

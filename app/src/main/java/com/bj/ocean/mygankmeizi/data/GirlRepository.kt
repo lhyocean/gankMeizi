@@ -18,7 +18,11 @@ class GirlRepository private constructor(private val girlDao: GirlDao) {
     fun getGirl(_id: String) = girlDao.getGirl(_id)
 
     suspend fun updateGirl(girl_id: String){
-        girlDao.updataFavor(girl_id)
+        girlDao.updateFavor(girl_id)
+    }
+
+    suspend fun cancelFavorGirl(girl_id: String){
+        girlDao.cancelFavor(girl_id)
     }
 
     companion object {

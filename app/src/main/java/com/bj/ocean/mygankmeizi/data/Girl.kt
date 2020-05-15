@@ -33,11 +33,6 @@ import androidx.room.PrimaryKey
 ){
 
     override fun toString(): String {
-
-        return super.toString()
+        return "Girl(girl_id='$girl_id', author='$author', isFavor=$isFavor)"
     }
-
-
-
-
 }

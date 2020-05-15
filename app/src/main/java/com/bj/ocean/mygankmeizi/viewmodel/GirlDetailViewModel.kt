@@ -22,4 +22,10 @@ class GirlDetailViewModel(
         }
     }
 
+    fun girlCancelFavor(){
+        viewModelScope.launch {
+            girlRepository.cancelFavorGirl(girl_id)
+        }
+    }
+
 }

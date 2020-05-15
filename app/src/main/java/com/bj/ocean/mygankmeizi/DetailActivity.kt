@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
 import androidx.navigation.findNavController
+import com.bj.ocean.mygankmeizi.adapter.bindFavor
 import com.bj.ocean.mygankmeizi.adapter.bindImageFromUrl
 import com.bj.ocean.mygankmeizi.data.AppDataBase
 import com.bj.ocean.mygankmeizi.data.Girl
@@ -27,6 +28,8 @@ class DetailActivity : AppCompatActivity() {
 
     private var girl_id: String? = null
     val instance by lazy { this }
+
+    private var girl: Girl? = null
 
 
     private var girlDetailViewModel: GirlDetailViewModel? = null
@@ -44,30 +47,36 @@ class DetailActivity : AppCompatActivity() {
                 instance, InjectUtils.providerGirlDetailViewModelFractory(instance, this)
             ).get(GirlDetailViewModel::class.java)
 
-
-            girlDetailViewModel?.girl?.observe(instance, Observer {
-                if (it != null)
-                    upDataUi(it)
-            })
+            updateUI()
 
         }
         toolbar.setNavigationOnClickListener {
             finish()
         }
 
+
+
         fab.setOnClickListener {
+            girl?.run {
 
-            girl_id?.apply {
+                if (this.isFavor == 1) {
+                    girlDetailViewModel?.girlCancelFavor()
+                    Snackbar.make(it, "取消收藏成功", Snackbar.LENGTH_SHORT).show()
+                } else {
+                    girlDetailViewModel?.addGirlToFavor()
+                    Snackbar.make(it, "添加收藏成功", Snackbar.LENGTH_SHORT).show()
+                }
 
-                girlDetailViewModel?.addGirlToFavor()
-                Snackbar.make(it,"添加收藏成功",Snackbar.LENGTH_SHORT).
-                    setAction("完成", View.OnClickListener {
-                        finish()
-                    }).
-                    show()
-                hideAppBarFab(fab)
             }
         }
+
+        img_favor.setOnClickListener {
+
+            if (girl?.isFavor == 1)
+                girlDetailViewModel?.girlCancelFavor()
+
+        }
+
     }
 
     private fun hideAppBarFab(fab: FloatingActionButton) {
@@ -78,19 +87,37 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    private fun upDataUi(it: Girl) {
 
-        bindImageFromUrl(detail_image, it.url)
-        if (1 == it.isFavor) {
-            fab.visibility = View.GONE
-        } else {
-            fab.visibility = View.VISIBLE
+    private fun showAppBarFab(fab: FloatingActionButton) {
+        val params = fab.layoutParams as CoordinatorLayout.LayoutParams
+        val behavior = params.behavior as FloatingActionButton.Behavior
+        behavior.isAutoHideEnabled = true
+        fab.show()
+
+    }
+
+    private fun updateUI() {
+        girlDetailViewModel?.girl?.observe(instance, Observer {
+            if (it != null)
+                upDataUi(it)
+        })
+    }
+
+    private fun upDataUi(it: Girl) {
+        if (it.isFavor==1){
+            fab.setImageResource(R.drawable.ic_like)
+        }else{
+            fab.setImageResource(R.drawable.ic_like_not)
         }
-        tv_create_time.setText("创建时间："+it.createdAt)
-        tv_publish_time.setText("创建时间："+it.publishedAt)
-        tv_desc.setText(""+it.desc)
-        tv_scan.setText("浏览量："+it.views)
-        tv_title.setText(""+it.title)
+        girl = it
+        bindImageFromUrl(detail_image, it.url)
+        Log.e("adasdasd", "dad" + it.toString())
+        tv_create_time.setText("创建时间：" + it.createdAt)
+        tv_publish_time.setText("创建时间：" + it.publishedAt)
+        tv_desc.setText("" + it.desc)
+        tv_scan.setText("浏览量：" + it.views)
+        tv_title.setText("" + it.title)
+        bindFavor(img_favor, it.isFavor)
 
     }
 

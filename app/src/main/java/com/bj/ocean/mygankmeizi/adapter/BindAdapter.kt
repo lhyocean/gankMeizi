@@ -22,3 +22,18 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
             .into(view)
     }
 }
+
+
+@BindingAdapter("isFavor")
+fun  bindFavor(view: ImageView,int: Int){
+     when (int){
+         0-> {view.setImageResource(R.drawable.ic_like_not)
+            }
+         1-> {view.setImageResource(R.drawable.ic_like)}
+         else->{view.setImageResource(R.drawable.ic_like_not)}
+     }
+
+
+
+
+}
