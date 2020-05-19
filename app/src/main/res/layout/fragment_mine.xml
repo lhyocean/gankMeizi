@@ -7,30 +7,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <ImageView
+            android:id="@+id/img_top"
+            android:background="#7C4DFF"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
 
     <ImageView
-            android:layout_margin="10dp"
+
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_top"
+            app:layout_constraintBottom_toBottomOf="@+id/img_top"
             android:id="@+id/img_head"
-            android:src="@mipmap/ic_launcher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    <TextView app:layout_constraintLeft_toRightOf="@+id/img_head"
-              app:layout_constraintTop_toTopOf="parent"
-              android:layout_marginLeft="36dp"
+            android:src="@android:drawable/sym_action_chat"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"/>
+    <TextView
+              app:layout_constraintLeft_toRightOf="@+id/img_head"
+              app:layout_constraintTop_toTopOf="@id/img_top"
+              app:layout_constraintBottom_toBottomOf="@+id/img_top"
+              android:layout_marginLeft="30dp"
               android:id="@+id/tv_name"
-              android:text="大萨达所多"
+              android:text="Hello Girl"
+              android:textColor="#fff"
+              android:textSize="30sp"
+              android:textStyle="bold"
               android:layout_toRightOf="@+id/img_head"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_marginTop="36dp"/>
+             />
 
 
     <androidx.recyclerview.widget.RecyclerView
 
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_head"
+            app:layout_constraintTop_toBottomOf="@+id/img_top"
             android:layout_margin="5dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:id="@+id/rec"

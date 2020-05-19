@@ -23,7 +23,6 @@ class GirlAdapter : ListAdapter<Girl, RecyclerView.ViewHolder>(GirlDiffCallBack(
         val girl = getItem(position)
 
         (holder as GirlViewHolder).bind(girl)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -61,7 +60,7 @@ class GirlAdapter : ListAdapter<Girl, RecyclerView.ViewHolder>(GirlDiffCallBack(
     }
 }
 
-private class GirlDiffCallBack : DiffUtil.ItemCallback<Girl>() {
+ class GirlDiffCallBack : DiffUtil.ItemCallback<Girl>() {
 
     override fun areContentsTheSame(oldItem: Girl, newItem: Girl): Boolean {
         return oldItem == newItem
