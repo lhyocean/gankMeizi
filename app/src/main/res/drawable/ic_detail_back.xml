@@ -22,9 +22,9 @@
     android:viewportHeight="32.0">
 
     <path
-        android:name="circle"
-        android:fillColor="?attr/colorSurface"
-        android:pathData="M16,16m-16,0a16,16 0,1 1,32 0a16,16 0,1 1,-32 0"/>
+            android:name="circle"
+            android:fillColor="?attr/colorSurface"
+            android:pathData="M16,16m-16,0a16,16 0,1 1,32 0a16,16 0,1 1,-32 0"/>
 
     <path
         android:name="arrow"
