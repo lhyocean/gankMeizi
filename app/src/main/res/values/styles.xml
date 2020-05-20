@@ -9,7 +9,9 @@
         <item name="android:colorBackground">@color/sunflower_white_bg</item>
 
     </style>
-    <style name="AppTheme" parent="BaseAppTheme"/>
+    <style name="AppTheme" parent="BaseAppTheme"
+
+    />
 
 
     <style name="AppTheme.NoActionBar">

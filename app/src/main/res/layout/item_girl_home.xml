@@ -23,6 +23,7 @@
             <ImageView
                     app:imageFromUrl="@{girl.url}"
                     android:contentDescription="pic of girl"
+
                     android:id="@+id/img"
                     android:layout_width="match_parent"
                     android:scaleType="centerCrop"
