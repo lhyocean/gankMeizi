@@ -30,7 +30,7 @@ class MineListAdapter  : ListAdapter<Girl, RecyclerView.ViewHolder>(GirlDiffCall
     class Holder(private val binging :ItemContentBinding) :
         RecyclerView.ViewHolder(binging.root){
         init {
-            binging?.tvContent.setBackgroundColor(Color.rgb(getRandomColor(),getRandomColor(),getRandomColor()))
+            binging?.tvContent.setBackgroundColor(Color.argb(getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor()))
         }
         fun bind(g: Girl?) {
            binging.apply {

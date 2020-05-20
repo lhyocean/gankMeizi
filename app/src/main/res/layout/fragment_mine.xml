@@ -42,11 +42,12 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-
+            app:spanCount="2"
+            tools:listitem="@layout/item_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_top"
             android:layout_margin="5dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             android:id="@+id/rec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

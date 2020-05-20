@@ -32,7 +32,7 @@ class MineFragment :Fragment(){
 
     private fun initView(view: View) {
         var rec=view?.findViewById<RecyclerView>(R.id.rec)
-        rec.layoutManager = StaggeredGridLayoutManager(1, RecyclerView.VERTICAL)
+        rec.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val adapter = MineListAdapter()
         rec.adapter=adapter
         subscribeUi(adapter)
