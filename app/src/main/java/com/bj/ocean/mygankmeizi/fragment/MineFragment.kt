@@ -34,11 +34,21 @@ class MineFragment :Fragment(){
 
     private fun initView(view: View) {
         var rec=view?.findViewById<RecyclerView>(R.id.rec)
-        rec.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+
+        rec.layoutManager = MyStaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+
         val adapter = MineListAdapter()
         rec.adapter=adapter
         subscribeUi(adapter)
     }
+
+    class MyStaggeredGridLayoutManager(spanCount: Int, orientation: Int) :
+        StaggeredGridLayoutManager(spanCount, orientation) {
+        override fun canScrollVertically(): Boolean {
+            return false
+        }
+    }
+
     private fun subscribeUi(adapter: MineListAdapter) {
         viewModel.girls.observe(viewLifecycleOwner){
             adapter.submitList(it)
