@@ -19,14 +19,20 @@ class ShowImgActivity : AppCompatActivity() {
         img?.run {
             bindImageFromUrl(img_bg,img)
         }
-        img_back.setOnClickListener{
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                finishAfterTransition()
-            }else
-            onBackPressed()
+        img_bg.setOnClickListener{
+            exitWithAnimation()
+        }
+        img_back.setOnClickListener{
+             exitWithAnimation()
         }
 
+    }
 
+    fun exitWithAnimation(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            finishAfterTransition()
+        }else
+            onBackPressed()
     }
 }
