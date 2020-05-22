@@ -1,5 +1,6 @@
 package com.bj.ocean.mygankmeizi
 
+import android.graphics.Color
 import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
@@ -54,6 +55,9 @@ class DetailActivity : AppCompatActivity() {
             finish()
         }
 
+
+        toolbar_layout.setExpandedTitleColor(Color.parseColor("#ffffff"))
+        toolbar_layout.setCollapsedTitleTextColor(Color.parseColor("#111111"))
 
 
         fab.setOnClickListener {
