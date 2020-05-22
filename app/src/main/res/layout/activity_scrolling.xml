@@ -27,7 +27,7 @@
                     app:contentScrim="#fff">
 
                 <ImageView
-
+                        android:transitionName="share"
                         android:src="@mipmap/ic_launcher"
                         android:scaleType="centerCrop"
                         android:id="@+id/detail_image"

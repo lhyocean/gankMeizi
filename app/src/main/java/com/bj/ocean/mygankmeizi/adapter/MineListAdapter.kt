@@ -1,13 +1,14 @@
 package com.bj.ocean.mygankmeizi.adapter
 
+import android.content.Intent
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bj.ocean.mygankmeizi.DetailActivity
 import com.bj.ocean.mygankmeizi.data.Girl
 import com.bj.ocean.mygankmeizi.databinding.ItemContentBinding
-import kotlin.random.Random
 
 
 /**
@@ -15,43 +16,58 @@ import kotlin.random.Random
  * @describe:
  */
 
-class MineListAdapter  : ListAdapter<Girl, RecyclerView.ViewHolder>(GirlDiffCallBack()) {
+class MineListAdapter : ListAdapter<Girl, RecyclerView.ViewHolder>(GirlDiffCallBack()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        return Holder(ItemContentBinding.inflate( LayoutInflater.from(parent.context),
-            parent, false))
+        return Holder(
+            ItemContentBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent, false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        (holder as Holder).bind( getItem(position))
+        (holder as Holder).bind(getItem(position))
 
     }
-    class Holder(private val binging :ItemContentBinding) :
-        RecyclerView.ViewHolder(binging.root){
+
+    class Holder(private val binding: ItemContentBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         init {
 
-            binging?.tvContent.setTextColor(
-                Color.rgb(/*getRandomColor(),*/
-                getRandomColor(),
+            binding.setClickListener {
+                binding.girl?.let {
+                    val intent = Intent(itemView.context, DetailActivity::class.java)
+                    intent.putExtra("girl_id", it.girl_id)
+                    itemView.context.startActivity(intent)
+                }
+            }
+            binding?.tvContent.setTextColor(
+                Color.rgb(
                     getRandomColor(),
-                    getRandomColor()))
+                    getRandomColor(),
+                    getRandomColor()
+                )
+            )
 
         }
+
         fun bind(g: Girl?) {
-           binging.apply {
-               girl=g
-               executePendingBindings()
-           }
+            binding.apply {
+                girl = g
+                executePendingBindings()
+            }
         }
-        fun getRandomColor():Int{
 
-            val color= (0..255).random()
+        fun getRandomColor(): Int {
+
+            val color = (0..255).random()
             return color
 
         }
     }
-
 
 
 }

@@ -1,10 +1,14 @@
 package com.bj.ocean.mygankmeizi
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.graphics.Color
 import android.opengl.Visibility
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -25,10 +29,10 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_scrolling.*
 import kotlinx.android.synthetic.main.lay_content.*
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : BaseActivity() {
 
     private var girl_id: String? = null
-    val instance by lazy { this }
+
 
     private var girl: Girl? = null
 
@@ -74,11 +78,30 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
+
+
         img_favor.setOnClickListener {
 
             if (girl?.isFavor == 1)
                 girlDetailViewModel?.girlCancelFavor()
 
+        }
+
+        detail_image.setOnClickListener {
+            girl?.run {
+                share(detail_image, this.url)
+            }
+        }
+
+    }
+
+    private fun share(it: ImageView, url: String) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val intent = Intent(instance, ShowImgActivity::class.java)
+            intent.putExtra("shareImg",url)
+            val bundle = ActivityOptions.makeSceneTransitionAnimation(instance, it, "share").toBundle()
+            startActivity(intent,bundle)
         }
 
     }
@@ -108,9 +131,9 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun upDataUi(it: Girl) {
-        if (it.isFavor==1){
+        if (it.isFavor == 1) {
             fab.setImageResource(R.drawable.ic_like)
-        }else{
+        } else {
             fab.setImageResource(R.drawable.ic_like_not)
         }
         girl = it

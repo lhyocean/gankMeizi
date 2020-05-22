@@ -52,8 +52,6 @@
 
         </RelativeLayout>
 
-
-
         <androidx.recyclerview.widget.RecyclerView
                 app:spanCount="2"
                 android:layout_below="@+id/img_top"

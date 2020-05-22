@@ -18,10 +18,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_height="wrap_content"/>
-
-
-
-
     <TextView
             android:textColor="#333"
             android:textSize="18sp"
