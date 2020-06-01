@@ -1,11 +1,14 @@
 package com.bj.ocean.mygankmeizi
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.bj.ocean.mygankmeizi.data.Girl
+import com.bj.ocean.mygankmeizi.data.TestBean
 import com.bj.ocean.mygankmeizi.fragment.HomeFragment
 import com.bj.ocean.mygankmeizi.fragment.MineFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -74,5 +77,24 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             }
         })
         nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
+
+        var list=ArrayList<TestBean>()
+        for (i in 0..10){
+            val girl=TestBean()
+            list.add(girl)
+            girl.sex=i+10
+            girl.name="nad"+i
+            girl.id="dsdasdasdasda"
+        }
+
+        list.forEach {
+            Log.e("dsaasdasd",it.toString())
+        }
+
+
+
+
+
     }
 }
